@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on darwin)" generated="20220722 15:31:52.195" rpa="false" schemaversion="3">
+<suite id="s1" name="test POPO2plus" source="/Users/yanyunting/Desktop/9527777/test_POPO2plus.robot">
+<kw name="Open Browser" library="Selenium2Library" type="SETUP">
+<arg>https://pttplay.cc/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220722 15:31:52.596" level="INFO">Opening browser 'chrome' to base url 'https://pttplay.cc/'.</msg>
+<status status="PASS" starttime="20220722 15:31:52.595" endtime="20220722 15:31:58.805"/>
+</kw>
+<test id="s1-t1" name="My Test" line="13">
+<kw name="Search Video Template">
+<arg>${articleName1}</arg>
+<doc>Tempalte for search ithelp aritcle need give aritcle variable</doc>
+<kw name="Click Search Box">
+<doc>Click search button in ithelp home page</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:31:58.809" endtime="20220722 15:31:59.238"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:31:59.239" level="INFO">Clicking element '//*[@id="wd"]'.</msg>
+<status status="PASS" starttime="20220722 15:31:59.239" endtime="20220722 15:31:59.528"/>
+</kw>
+<status status="PASS" starttime="20220722 15:31:58.809" endtime="20220722 15:31:59.528"/>
+</kw>
+<kw name="Input Search Name">
+<arg>${article}</arg>
+<doc>Input search content in search bar</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:31:59.529" endtime="20220722 15:31:59.584"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<arg>${article}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 15:31:59.585" level="INFO">Typing text '名偵探柯南' into text field '//*[@id="wd"]'.</msg>
+<status status="PASS" starttime="20220722 15:31:59.584" endtime="20220722 15:31:59.761"/>
+</kw>
+<status status="PASS" starttime="20220722 15:31:59.529" endtime="20220722 15:31:59.762"/>
+</kw>
+<kw name="Click Search Button">
+<doc>Click search type checkbox in search area</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/nav/div/div/div[3]/div[1]/form/button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:31:59.762" endtime="20220722 15:31:59.793"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=/html/body/nav/div/div/div[3]/div[1]/form/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:31:59.794" level="INFO">Clicking element 'xpath=/html/body/nav/div/div/div[3]/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20220722 15:31:59.793" endtime="20220722 15:32:01.405"/>
+</kw>
+<status status="PASS" starttime="20220722 15:31:59.762" endtime="20220722 15:32:01.405"/>
+</kw>
+<kw name="Click Video Link">
+<doc>Click search submit button in search area</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=//*[@id="content"]/div[1]/div[1]/a</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:32:01.406" endtime="20220722 15:32:01.450"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=//*[@id="content"]/div[1]/div[1]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:01.450" level="INFO">Clicking element 'xpath=//*[@id="content"]/div[1]/div[1]/a'.</msg>
+<status status="PASS" starttime="20220722 15:32:01.450" endtime="20220722 15:32:07.895"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:01.406" endtime="20220722 15:32:07.896"/>
+</kw>
+<kw name="Verify Video Is Existing">
+<arg>${article}</arg>
+<doc>Verify search article is existing</doc>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>//*[@id="zanpian-score"]/h1</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 15:32:07.897" endtime="20220722 15:32:07.929"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${getArticle}</var>
+<arg>//*[@id="zanpian-score"]/h1</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:07.973" level="INFO">${getArticle} = 名偵探柯南</msg>
+<status status="PASS" starttime="20220722 15:32:07.929" endtime="20220722 15:32:07.974"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${getArticle}</arg>
+<arg>${article}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220722 15:32:07.974" endtime="20220722 15:32:07.975"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:07.896" endtime="20220722 15:32:07.975"/>
+</kw>
+<status status="PASS" starttime="20220722 15:31:58.808" endtime="20220722 15:32:07.976"/>
+</kw>
+<kw name="Search Video Template">
+<arg>${articleName2}</arg>
+<doc>Tempalte for search ithelp aritcle need give aritcle variable</doc>
+<kw name="Click Search Box">
+<doc>Click search button in ithelp home page</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:32:07.977" endtime="20220722 15:32:08.042"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:08.043" level="INFO">Clicking element '//*[@id="wd"]'.</msg>
+<status status="PASS" starttime="20220722 15:32:08.043" endtime="20220722 15:32:08.196"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:07.976" endtime="20220722 15:32:08.196"/>
+</kw>
+<kw name="Input Search Name">
+<arg>${article}</arg>
+<doc>Input search content in search bar</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:32:08.197" endtime="20220722 15:32:08.304"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>//*[@id="wd"]</arg>
+<arg>${article}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:08.305" level="INFO">Typing text '名偵探柯南：漆黑的追跡者' into text field '//*[@id="wd"]'.</msg>
+<status status="PASS" starttime="20220722 15:32:08.304" endtime="20220722 15:32:08.475"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:08.197" endtime="20220722 15:32:08.475"/>
+</kw>
+<kw name="Click Search Button">
+<doc>Click search type checkbox in search area</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/nav/div/div/div[3]/div[1]/form/button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:32:08.475" endtime="20220722 15:32:08.504"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=/html/body/nav/div/div/div[3]/div[1]/form/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:08.505" level="INFO">Clicking element 'xpath=/html/body/nav/div/div/div[3]/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20220722 15:32:08.504" endtime="20220722 15:32:09.525"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:08.475" endtime="20220722 15:32:09.525"/>
+</kw>
+<kw name="Click Video Link">
+<doc>Click search submit button in search area</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=//*[@id="content"]/div[1]/div[1]/a</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220722 15:32:09.526" endtime="20220722 15:32:09.558"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath=//*[@id="content"]/div[1]/div[1]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:09.558" level="INFO">Clicking element 'xpath=//*[@id="content"]/div[1]/div[1]/a'.</msg>
+<status status="PASS" starttime="20220722 15:32:09.558" endtime="20220722 15:32:12.637"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:09.525" endtime="20220722 15:32:12.638"/>
+</kw>
+<kw name="Verify Video Is Existing">
+<arg>${article}</arg>
+<doc>Verify search article is existing</doc>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>//*[@id="zanpian-score"]/h1</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220722 15:32:12.639" endtime="20220722 15:32:12.649"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${getArticle}</var>
+<arg>//*[@id="zanpian-score"]/h1</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220722 15:32:12.679" level="INFO">${getArticle} = 名偵探柯南：漆黑的追跡者</msg>
+<status status="PASS" starttime="20220722 15:32:12.649" endtime="20220722 15:32:12.679"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${getArticle}</arg>
+<arg>${article}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220722 15:32:12.680" endtime="20220722 15:32:12.680"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:12.638" endtime="20220722 15:32:12.680"/>
+</kw>
+<status status="PASS" starttime="20220722 15:32:07.976" endtime="20220722 15:32:12.680"/>
+</kw>
+<status status="PASS" starttime="20220722 15:31:58.806" endtime="20220722 15:32:12.681"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220722 15:32:12.682" endtime="20220722 15:32:13.081"/>
+</kw>
+<doc>Robot Framework Example</doc>
+<status status="PASS" starttime="20220722 15:31:52.197" endtime="20220722 15:32:13.081"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="test POPO2plus">test POPO2plus</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
