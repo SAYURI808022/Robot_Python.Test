@@ -18,8 +18,6 @@ webdata_fromrequests
     ${result}=  requestdata
     [return]  ${result}
 
-*** Test Cases ***
-
 Click Search Bar
     Wait Until Element Is Visible    //*[@id="map-wrapper"]/div[2]/div/div[1]/div/form/div/input
     Click Element    //*[@id="map-wrapper"]/div[2]/div/div[1]/div/form/div/input
@@ -41,8 +39,13 @@ Click Search Button
     Wait Until Element Is Visible   //*[@id="map-wrapper"]/div[2]/div/div[1]/div/form/div/div[1]
     Click Element    //*[@id="map-wrapper"]/div[2]/div/div[1]/div/form/div/div[1]
 
+*** Test Cases ***
 
-Verify Store_Name Is Existing  
+Verify Store_Name Is Existing 
+    Click Search Bar
+    Input Search Store_Name  ${article}
+    Click Store_Name Options
+    Click Search Button
     ${value}  webdata_fromrequests
     Log  ${value}
     Wait Until Page Contains Element   //*[@id="map-wrapper"]/div[2]/div/div[2]/div[2]/ul/li[1]/div/div[1]

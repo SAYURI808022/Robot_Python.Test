@@ -9,3 +9,4 @@ def requestdata():
     results = (dric["name"]) #結果
     
     return results
+
