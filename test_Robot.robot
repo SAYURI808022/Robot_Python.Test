@@ -51,6 +51,6 @@ Search Video Template
 Verify Video Is Existing
     [Documentation]    Verify search video is existing
     [Arguments]    ${article}
-    Wait Until Page Contains Element    //*[@id="zanpian-score"]/h1
+    Wait Until Page Contains Element    //*[@id="zanpian-score"]/h1   10s
     ${getArticle} =    Get Text    //*[@id="zanpian-score"]/h1
     Should Be Equal As Strings    ${getArticle}    ${article}
